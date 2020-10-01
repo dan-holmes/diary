@@ -6,15 +6,7 @@ describe SecretDiary do
     @diary = SecretDiary.new
   end
 
-  it "can add an entry" do
-    # Act
-    @diary.add_entry("This is my entry.")
-
-    # Assert
-    expect(@diary.entries[0]).to eq "This is my entry."
-  end
-
-  it "can get entries" do
+  it "can add and get entries" do
     # Act
     @diary.add_entry("This is my entry.")
 
@@ -22,19 +14,12 @@ describe SecretDiary do
     expect(@diary.get_entries).to eq ["This is my entry."]
   end
 
-  it "cannot add entries when locked" do
+  it "cannot add or get entries when locked" do
     # Act
     @diary.lock
 
     # Assert
     expect { @diary.add_entry("This is my entry.") }.to raise_error "Please unlock the diary first."
-  end
-
-  it "cannot get entries when locked" do
-    # Act
-    @diary.lock
-
-    # Assert
     expect { @diary.get_entries }.to raise_error "Please unlock the diary first."
   end
 
