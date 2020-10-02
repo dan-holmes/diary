@@ -1,1 +1,1 @@
-Basic diary application =
+Basic diary application
